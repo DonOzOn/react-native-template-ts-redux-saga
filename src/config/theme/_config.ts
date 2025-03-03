@@ -1,5 +1,5 @@
 
-import type { ThemeConfiguration } from '@/types/config.type';
+import type { ThemeConfiguration } from '@/types';
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 
 export const enum Variant {

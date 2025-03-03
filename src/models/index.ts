@@ -1,2 +1,2 @@
-export { userSchema } from './user.model';
-export type { User } from './user.model';
+export { userSchema } from './user/user.model';
+export type { User } from './user/user.model';

@@ -2,7 +2,7 @@
 // src/store/user/userSaga.ts
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 import { fetchUser } from '@/api';
 import { callApiWithNetworkCheck } from '@/utils';

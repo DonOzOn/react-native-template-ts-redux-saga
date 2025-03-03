@@ -4,7 +4,7 @@ import type { SvgProps } from 'react-native-svg';
 import { useCallback, useEffect, useState } from 'react';
 import { z } from 'zod';
 
-import getAssetsContext from '@/config/theme/assets/getAssetsContext';
+import getAssetsContext from '@/assets/getAssetsContext';
 import useTheme from '@/hook/useTheme';
 
 type Props = {

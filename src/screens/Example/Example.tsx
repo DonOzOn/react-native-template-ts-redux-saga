@@ -1,10 +1,14 @@
-import { AssetByVariant, IconByVariant, SafeScreen, Skeleton } from '@/components';
-import { useI18n } from '@/hook';
-import useTheme from '@/hook/useTheme';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-
+import {
+  AssetByVariant,
+  IconByVariant,
+  SafeScreen,
+  Skeleton,
+} from '@/components';
+import { useI18n } from '@/hook';
+import useTheme from '@/hook/useTheme';
 
 function Example() {
   const { t } = useTranslation();
@@ -21,15 +25,12 @@ function Example() {
     variant,
   } = useTheme();
 
-
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
   };
 
   return (
-    <SafeScreen
-
-    >
+    <SafeScreen>
       <ScrollView>
         <View
           style={[

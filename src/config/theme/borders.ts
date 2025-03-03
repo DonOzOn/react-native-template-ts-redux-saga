@@ -1,7 +1,7 @@
 import type { BorderBottomRadius, BorderColors, BorderRadius, BorderTopRadius, UnionConfiguration } from '@/types';
 import type { ViewStyle } from 'react-native';
 import { config } from './_config';
-import type { BorderWidths } from '@/types/borders.type';
+import type { BorderWidths } from '@/types/theme/borders.type';
 
 
 /**

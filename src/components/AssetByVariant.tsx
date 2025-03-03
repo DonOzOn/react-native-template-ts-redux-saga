@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import { z } from 'zod';
 
-import getAssetsContext from '@/config/theme/assets/getAssetsContext';
+import getAssetsContext from '@/assets/getAssetsContext';
 import useTheme from '@/hook/useTheme';
 
 type Props = {

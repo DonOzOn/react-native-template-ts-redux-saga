@@ -1,4 +1,5 @@
-import { FulfilledThemeConfiguration, HasProperty, Variant } from '@/types';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FulfilledThemeConfiguration, HasProperty, Variant } from '@/types';
 import { config } from '../_config';
 function hasProperty<Config, KeyPath extends string>(
   configuration: Config,

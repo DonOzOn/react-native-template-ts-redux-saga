@@ -10,10 +10,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserRequest } from '@/redux/app/appSlice';
 
-
-
 function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
-  const { fonts, gutters, layout } = useTheme();
+  const { fonts, layout } = useTheme();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
