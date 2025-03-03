@@ -1,0 +1,1 @@
+export {fetchUser,fetchUserApi} from './authApi';
