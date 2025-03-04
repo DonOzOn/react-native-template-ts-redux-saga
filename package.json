@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev",
+    "ios": "react-native run-ios --scheme ReactNativeTemplateDebugDev --mode DebugDev",
     "start": "react-native start",
     "test": "jest",
     "lint:rules": "eslint . --cache",
@@ -15,12 +15,12 @@
     "test:report": "jest --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --coverage",
     "pod-install": "npx pod-install",
     "postinstall": "npx patch-package",
-    "ios-run-debug-develop": "react-native run-ios --scheme ReactNativeTemplateDebugDev --mode DebugDev",
-    "ios-run-debug-staging": "react-native run-ios --scheme ReactNativeTemplateDebugStaging --mode DebugStaging",
-    "ios-run-debug-production": "react-native run-ios --scheme ReactNativeTemplateDebugProd --mode DebugProd",
-    "android-run-debug-develop": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev'",
-    "android-run-debug-staging": "react-native run-android --mode=stagingDebug --appId 'com.reactnativetemplate.stg'",
-    "android-run-debug-product": "react-native run-android --mode=prodDebug --appId 'com.reactnativetemplate.prod'"
+    "ios-debug-develop": "react-native run-ios --scheme ReactNativeTemplateDebugDev --mode DebugDev",
+    "ios-debug-staging": "react-native run-ios --scheme ReactNativeTemplateDebugStaging --mode DebugStaging",
+    "ios-debug-production": "react-native run-ios --scheme ReactNativeTemplateDebugProd --mode DebugProd",
+    "android-debug-develop": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev'",
+    "android-debug-staging": "react-native run-android --mode=stagingDebug --appId 'com.reactnativetemplate.stg'",
+    "android-debug-product": "react-native run-android --mode=prodDebug --appId 'com.reactnativetemplate.prod'"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^11.4.1",
