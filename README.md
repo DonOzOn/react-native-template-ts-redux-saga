@@ -74,10 +74,14 @@ When you want to forcefully reload, for example to reset the state of your app, 
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
 ## rename app
+```sh
 $ yarn global add react-native-rename
-
+```
+```sh
 $ npx react-native-rename@latest "new_name"
+```
 
 With custom Bundle Identifier
-
+```sh
 $ npx react-native-rename@latest "new_name" -b "bundle_identifier"
+```
