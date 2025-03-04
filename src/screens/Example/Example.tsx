@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-
+import Config from "react-native-config";
 import {
   AssetByVariant,
   IconByVariant,
@@ -63,6 +63,7 @@ function Example() {
               {t('screen_example.description')}
             </Text>
           </View>
+          <Text>{Config.API_BASE_URL}11</Text>
 
           <View
             style={[
@@ -101,6 +102,7 @@ function Example() {
               <IconByVariant path={'language'} stroke={colors.purple500} />
             </TouchableOpacity>
           </View>
+
         </View>
       </ScrollView>
     </SafeScreen>

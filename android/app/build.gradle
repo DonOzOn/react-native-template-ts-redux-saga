@@ -1,6 +1,13 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+project.ext.envConfigFiles = [
+        development: ".env.development",
+        staging: ".env.staging",
+        prod: ".env.production",
+        anothercustombuild: ".env",
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -79,14 +86,33 @@ android {
 
     namespace "com.reactnativetemplate"
     defaultConfig {
-        applicationId "com.reactnativetemplate"
+        applicationId project.env.get('ANDROID_APP_ID')
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.valueOf( project.env.get('ANDROID_APP_VERSION_CODE'))
+        versionName project.env.get('ANDROID_APP_VERSION_NAME')
+        resValue "string" , "build_config_package" , "com.reactnativetemplate"
     }
     signingConfigs {
         debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        development {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        staging {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        prod {
             storeFile file('debug.keystore')
             storePassword 'android'
             keyAlias 'androiddebugkey'
@@ -103,6 +129,25 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    productFlavors {
+        flavorDimensions += "version"
+        create("dev") {
+            applicationIdSuffix = ".dev"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+            signingConfig signingConfigs.development
+        }
+        create("staging") {
+            applicationIdSuffix = ".stg"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+            signingConfig signingConfigs.staging
+        }
+        create("prod") {
+            applicationIdSuffix = ".prod"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+            signingConfig signingConfigs.prod
         }
     }
 }
