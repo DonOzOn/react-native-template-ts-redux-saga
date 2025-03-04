@@ -8,14 +8,18 @@ module.exports = {
     '<THIRD_PARTY_MODULES>', // Imports not matched by other special words or groups.
     '', // empty line
     '^@/theme(.*)$',
+    '^@/assets(.*)$',
     '^@/hooks(.*)$',
     '^@/navigation(.*)$',
     '^@/translations(.*)$',
+    '^@/config(.*)$',
+    '^@/api(.*)$',
+    '^@/models(.*)$',
+    '^@/types(.*)$',
+    '^@/redux(.*)$',
+    '^@/untils(.*)$',
     '', // empty line
-    '^@/components/atoms(.*)$',
-    '^@/components/molecules(.*)$',
-    '^@/components/organisms(.*)$',
-    '^@/components/templates(.*)$',
+    '^@/components(.*)$',
     '^@/screens(.*)$',
     '', // empty line
     '^@/(.*)$',
