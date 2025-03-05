@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev",
+    "android": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev'",
     "ios": "react-native run-ios --scheme ReactNativeTemplateDebugDev --mode DebugDev",
     "start": "react-native start",
     "test": "jest",
@@ -29,10 +29,12 @@
     "android-release-product": "react-native run-android --mode=prodRelease --appId 'com.reactnativetemplate.prod'"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^5",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-navigation/native": "^7.0.15",
     "@react-navigation/stack": "^7.1.2",
     "@reduxjs/toolkit": "^2.6.0",
+    "@shopify/flash-list": "^1.7.3",
     "axios": "^1.8.1",
     "i18next": "^24.2.2",
     "intl-pluralrules": "^2.0.1",

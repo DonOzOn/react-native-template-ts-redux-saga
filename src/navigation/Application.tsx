@@ -1,32 +1,24 @@
-import type { RootStackParamList } from '@/navigation/types';
+import type { AuthState } from '@/redux/auth/authSlice';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { Paths } from '@/navigation/paths';
-
-import { ExampleScreen, LoginScreen, StartupScreen } from '@/screens';
+import { useSelector } from 'react-redux';
 
 import useTheme from '@/hook/useTheme';
 
-const Stack = createStackNavigator<RootStackParamList>();
+import { AppNavigator } from './AppNavigator';
+import { AuthNavigator } from './AuthNavigator';
 
 function ApplicationNavigator() {
-  const { navigationTheme, variant } = useTheme();
+  const { navigationTheme } = useTheme();
+  const authInfor = useSelector(
+    (state: { auth: AuthState }) => state.auth.authInfor,
+  );
 
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={navigationTheme}>
-        <Stack.Navigator
-          initialRouteName={Paths.Login}
-          key={variant}
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen component={ExampleScreen} name={Paths.Example} />
-          <Stack.Screen component={StartupScreen} name={Paths.Startup} />
-          <Stack.Screen component={LoginScreen} name={Paths.Login} />
-        </Stack.Navigator>
+        {authInfor ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </SafeAreaProvider>
   );

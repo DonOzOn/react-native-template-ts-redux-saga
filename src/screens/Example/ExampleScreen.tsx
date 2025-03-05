@@ -1,9 +1,15 @@
 import type { Paths } from '@/navigation/paths';
-import type { RootScreenProps } from '@/navigation/types';
+import type { HomeState } from '@/redux/home/homeSlice';
+import type { RootScreenProps } from '@/types';
 
 import { useTranslation } from 'react-i18next';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Button, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Config from 'react-native-config';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { StateStatus } from '@/config';
+import { logout } from '@/redux/auth/authSlice';
+import { fetchUser, resetError } from '@/redux/home/homeSlice';
 
 import {
   AssetByVariant,
@@ -19,6 +25,10 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
   const { t } = useTranslation();
   const { toggleLanguage } = useI18n();
 
+  const dispatch = useDispatch();
+  const { error, status } = useSelector(
+    (state: { home: HomeState }) => state.home,
+  );
   const {
     backgrounds,
     changeTheme,
@@ -32,9 +42,16 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
   };
+  const onCloseErrorModal = () => {
+    dispatch(resetError());
+  };
 
   return (
-    <SafeScreen>
+    <SafeScreen
+      error={error}
+      loading={status == StateStatus.LOADING}
+      onCloseErrorModal={onCloseErrorModal}
+    >
       <ScrollView>
         <View
           style={[
@@ -71,8 +88,20 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
               {t('screen_example.description')}
             </Text>
           </View>
-          <Text>{Config.API_BASE_URL}</Text>
-
+          <TouchableOpacity
+          onPress={() => {
+              dispatch(fetchUser());
+            }}
+            style={[gutters.marginBottom_16]}
+          >
+            <Text>{Config.API_BASE_URL}</Text>
+          </TouchableOpacity>
+          <Button
+            onPress={() => {
+              dispatch(logout());
+            }}
+            title="Logout"
+          />
           <View
             style={[
               layout.row,

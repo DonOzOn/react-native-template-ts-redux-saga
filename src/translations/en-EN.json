@@ -5,6 +5,9 @@
       "initials": "RNB"
     },
     "common_error": "Oops! Something went wrong.",
+    "error": {
+      "no_internet": "No internet connection!"
+    },
     "screen_example": {
       "hello_user": "Hi, my name is {{name}}",
       "title": "Welcome on The $t(common_appName.full)",

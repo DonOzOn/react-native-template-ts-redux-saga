@@ -1,23 +1,22 @@
 // src/api/userApi.ts
 import type { User } from '@/models';
 
-import { UserEndPoint } from '@/config';
-import { AuthSchema, userSchema } from '@/models';
+import { authSchema, userSchema } from '@/models';
 
 import api from './axiosConfig';
-import { LoginEndPoint } from '@/config/constant/endpoint';
+import { AuthEndPoint } from '@/config/constant/endpoint';
 import type { LoginFormInputs } from '@/types';
 
 export const login = async (data: LoginFormInputs) => {
-  const response = await api.post(`${LoginEndPoint.LOGIN}` , {
+  const response = await api.post(`${AuthEndPoint.LOGIN}` , {
     expiresInMins: 1, 
     password: data.password,
     username: data.email,
   });
-  return AuthSchema.parse(response.data);
+  return authSchema.parse(response.data);
 };
 
-export const fetchUser = async (userId: string): Promise<User> => {
-  const response = await api.get(`${UserEndPoint.GET_USER}/${userId}`);
+export const getUser = async (): Promise<User> => {
+  const response = await api.get(`${AuthEndPoint.GET_USER}`);
   return userSchema.parse(response.data);
 };

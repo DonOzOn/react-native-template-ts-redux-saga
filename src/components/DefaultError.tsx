@@ -1,10 +1,10 @@
 import { useErrorBoundary } from 'react-error-boundary';
 import { useTranslation } from 'react-i18next';
 import { Text, TouchableOpacity, View } from 'react-native';
-import IconByVariant from './IconByVariant';
+
 import useTheme from '@/hook/useTheme';
 
-
+import IconByVariant from './IconByVariant';
 
 type Props = {
   onReset?: () => void;
@@ -31,10 +31,16 @@ function DefaultErrorScreen({ onReset = undefined }: Props) {
         stroke={colors.red500}
         width={42}
       />
-      <Text style={[fonts.gray800, fonts.bold, fonts.size_16]}>
+      <Text style={[fonts.gray800, fonts.bold, fonts.size_16_QuicksandRegular]}>
         {t('error_boundary.title')}
       </Text>
-      <Text style={[fonts.gray800, fonts.size_12, fonts.alignCenter]}>
+      <Text
+        style={[
+          fonts.gray800,
+          fonts.size_12_QuicksandRegular,
+          fonts.alignCenter,
+        ]}
+      >
         {t('error_boundary.description')}
       </Text>
 
@@ -45,7 +51,7 @@ function DefaultErrorScreen({ onReset = undefined }: Props) {
             onReset?.();
           }}
         >
-          <Text style={[fonts.gray800, fonts.size_16]}>
+          <Text style={[fonts.gray800, fonts.size_16_QuicksandRegular]}>
             {t('error_boundary.cta')}
           </Text>
         </TouchableOpacity>

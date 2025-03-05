@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import appReducer from './app/appSlice';
 import authReducer from './auth/authSlice';
+import homeReducer from './home/homeSlice';
 import networkReducer from './network/networkSlice';
 import rootSaga from './rootSaga';
 import { reduxStorage } from './storage';
@@ -15,6 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
   app: appReducer,
   auth: authReducer,
+  home: homeReducer,
   network: networkReducer, // Not persisted
 });// Redux Persist Config
 const persistConfig = {

@@ -1,4 +1,3 @@
-import type { RootScreenProps } from '@/navigation/types';
 
 import { Text, View } from 'react-native';
 
@@ -9,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserRequest } from '@/redux/app/appSlice';
+import type { RootScreenProps } from '@/types';
 
 function StartupScreen({ navigation }: RootScreenProps<Paths.Startup>) {
   const { fonts, layout } = useTheme();

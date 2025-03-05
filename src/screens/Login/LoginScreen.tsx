@@ -1,14 +1,15 @@
-import type { RootScreenProps } from '@/navigation/types';
-import type { LoginFormInputs } from '@/types';
+import type { AuthState } from '@/redux/auth/authSlice';
+import type { LoginFormInputs, RootScreenProps } from '@/types';
 
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Button, Text, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { Button, Keyboard, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Paths } from '@/navigation/paths';
-import { getUserRequest } from '@/redux/app/appSlice';
+import { StateStatus } from '@/config';
+import { loginRequest, resetError } from '@/redux/auth/authSlice';
 
 import { Input, SafeScreen } from '@/components';
 
@@ -18,6 +19,9 @@ function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
   const { backgrounds, fonts, gutters, layout } = useTheme();
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { error, status } = useSelector(
+    (state: { auth: AuthState }) => state.auth,
+  );
   const {
     control,
     formState: { errors },
@@ -25,14 +29,26 @@ function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
   } = useForm<LoginFormInputs>();
 
   const onSubmit = (data: LoginFormInputs) => {
-    navigation.navigate(Paths.Example);
+    Keyboard.dismiss();
+    dispatch(loginRequest(data));
+  };
+
+  const onCloseErrorModal = () => {
+    dispatch(resetError());
   };
 
   useEffect(() => {
-    dispatch(getUserRequest(''));
-  }, [dispatch]);
+    if (status == StateStatus.SUCCESS) {
+      navigation.navigate(Paths.Example);
+    }
+  }, [navigation, status]);
+
   return (
-    <SafeScreen>
+    <SafeScreen
+      error={error}
+      loading={status == StateStatus.LOADING}
+      onCloseErrorModal={onCloseErrorModal}
+    >
       <View
         style={[
           layout.flex_1,
@@ -49,11 +65,11 @@ function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
           <Text>Email</Text>
           <Controller
             control={control}
-            defaultValue="abc@123.com"
+            defaultValue='emilys'
             name="email"
             render={({ field: { onChange, value } }) => (
               <Input
-                defaultValue="abc@123.com"
+                defaultValue='emilys'
                 keyboardType="email-address"
                 onChangeText={onChange}
                 placeholder="Enter your email"
@@ -61,10 +77,10 @@ function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
               />
             )}
             rules={{
-              pattern: {
-                message: 'Invalid email format',
-                value: /^[\w%+.-]+@[\d.A-Za-z-]+\.[A-Za-z]{2,4}$/,
-              },
+              // pattern: {
+              //   message: 'Invalid email format',
+              //   value: /^[\w%+.-]+@[\d.A-Za-z-]+\.[A-Za-z]{2,4}$/,
+              // },
               required: 'Email is required',
             }}
           />
@@ -77,13 +93,15 @@ function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
           <Text>Password</Text>
           <Controller
             control={control}
+                 defaultValue='emilyspass'
             name="password"
             render={({ field: { onChange, value } }) => (
               <Input
+                defaultValue='emilyspass'
                 onChangeText={onChange}
                 placeholder="Enter your password"
                 secureTextEntry
-                value={value}
+                                value={value}
               />
             )}
             rules={{

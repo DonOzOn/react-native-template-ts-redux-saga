@@ -12,3 +12,12 @@ export enum RequestStatus {
   LOADING = 'loading',
   SUCCESS = 'success',
 }
+
+
+export enum StateStatus {
+  ERROR = "error",
+  INIT = "init",
+  LOADING = "loading",
+  SUCCESS = "success",
+}
+

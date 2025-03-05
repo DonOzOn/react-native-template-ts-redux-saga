@@ -1,11 +1,16 @@
 import { z } from "zod";
 
 export const userSchema = z.object({
-  age: z.number().min(18, "err13").optional(),
-  email: z.string().email("err12"),
-  id: z.number(),
-  isAdmin: z.boolean().default(false),
-  name: z.string().min(2, "err1"),
+  accessToken: z.string().optional(), // JWT validation can be added if necessary
+  email: z.string().email().optional(), // Ensures it's a valid email
+  firstName: z.string().optional(),
+  gender: z.enum(["male", "female", "other"]).optional(), // Adjust if needed
+  id: z.number().optional(),
+  image: z.string().url().optional(), // Ensures it's a valid URL
+  lastName: z.string().optional(),
+  refreshToken: z.string().optional(),
+  username: z.string().optional(),
 });
 
+// TypeScript type based on the schema
 export type User = z.infer<typeof userSchema>;

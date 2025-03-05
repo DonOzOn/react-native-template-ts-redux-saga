@@ -4,7 +4,8 @@ export const UserEndPoint = {
   GET_USER: `https://jsonplaceholder.typicode.com/users`,
 };
 
-export const LoginEndPoint = {
+export const AuthEndPoint = {
+  GET_USER: `/auth/me`,
   LOGIN: `/auth/login`,
 };
 
