@@ -1,7 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import type { SafeAreaViewProps } from 'react-native-safe-area-context';
 
-import { useEffect, useState } from 'react';
 import { ActivityIndicator, StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

@@ -3,7 +3,6 @@ import type { LoginFormInputs, RootScreenProps } from '@/types';
 
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Keyboard, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,7 +16,6 @@ import useTheme from '@/hook/useTheme';
 
 function LoginScreen({ navigation }: RootScreenProps<Paths.Login>) {
   const { backgrounds, fonts, gutters, layout } = useTheme();
-  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { error, status } = useSelector(
     (state: { auth: AuthState }) => state.auth,

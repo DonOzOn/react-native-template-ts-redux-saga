@@ -16,7 +16,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { ErrorModal, NetworkBanner } from './components';
 import ThemeProvider from './config/theme/ThemeProvider/ThemeProvider';
-import { logout, resetError } from './redux/auth/authSlice';
+import { logout } from './redux/auth/authSlice';
 import { setNetworkStatus } from './redux/network/networkSlice';
 import { persistor, store } from './redux/store';
 
@@ -39,26 +39,29 @@ const NetworkListener = () => {
 };
 const MainApp = () => {
   const dispatch = useDispatch();
-  const expiredToken = useSelector((state: { auth: AuthState }) => state.auth.expiredToken);
-
+  const expiredToken = useSelector(
+    (state: { auth: AuthState }) => state.auth.expiredToken,
+  );
   const onCloseErrorModal = () => {
     dispatch(logout());
   };
-
   return (
     <GestureHandlerRootView>
       <ThemeProvider storage={storage}>
         <NetworkListener />
         <NetworkBanner />
         <ApplicationNavigator />
-        <ErrorModal errorMessage="Token expired" onClose={onCloseErrorModal} visible={!!expiredToken} />
+        <ErrorModal
+          errorMessage="Token expired"
+          onClose={onCloseErrorModal}
+          visible={!!expiredToken}
+        />
       </ThemeProvider>
     </GestureHandlerRootView>
   );
 };
 
 function App() {
-
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
