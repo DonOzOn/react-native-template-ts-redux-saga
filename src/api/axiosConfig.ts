@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
+import { BASE_URL_DUMMY } from '@/config';
 import axios from 'axios';
+// import Config from 'react-native-config';
 
 const api = axios.create({
-  baseURL: 'https://api.example.com',
+  // baseURL: Config.API_BASE_URL,
+  baseURL: BASE_URL_DUMMY,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -14,22 +18,25 @@ api.interceptors.request.use(
     console.log('Request:', config);
     return config;
   },
-  (error) => handleApiError(error),
+  (error) => {
+    console.error('Request Error:', error.message);
+    return Promise.reject(error);
+  }
 );
 
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.log('Response error:', error);
-    return Promise.reject(error);
-  },
+    const errorMessage = handleApiError(error);
+    return Promise.reject(new Error(errorMessage));
+  }
 );
-// Common function to extract API error message
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const handleApiError = (error: any): string => {
   if (axios.isAxiosError(error)) {
     return error.response?.data?.message || 'Something went wrong!';
   }
   return 'Network error!';
 };
+
 export default api;

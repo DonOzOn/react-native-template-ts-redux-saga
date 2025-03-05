@@ -28,5 +28,6 @@ module.exports = {
   ],
   importOrderTypeScriptVersion: '5.0.0',
   plugins: ['@ianvs/prettier-plugin-sort-imports'],
+  printWidth: 80,
   singleQuote: true,
 };

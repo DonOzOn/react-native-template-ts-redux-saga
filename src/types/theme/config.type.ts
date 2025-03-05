@@ -19,6 +19,7 @@ export type FulfilledThemeConfiguration = {
   readonly colors: Record<string, string>;
   fonts: {
     readonly colors: Record<string, string>;
+    fontFamily: readonly string[];
     sizes: readonly number[];
   };
   gutters: readonly number[];

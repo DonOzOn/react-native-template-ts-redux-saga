@@ -1,13 +1,22 @@
-import type { config } from '@/config/theme/_config';
-import type { ArrayValue, RemoveBeforeSeparator, ToNumber } from './common.type';
+import type {
+  ArrayValue,
+  RemoveBeforeSeparator,
+} from './common.type';
 import type { UnionConfiguration } from './config.type';
+import type { config } from '@/config/theme/_config';
 import type { staticFontStyles } from '@/config/theme/fonts';
+export type FontFamily =
+  | 'QuicksandBold'
+  | 'QuicksandLight'
+  | 'QuicksandMedium'
+  | 'QuicksandRegular'
+  | 'QuicksandSemiBold';
+type FontStylesKeys = `size_${ArrayValue<typeof config.fonts.sizes>}_${FontFamily}`;
 
-type FontSizesKeys = `size_${ArrayValue<typeof config.fonts.sizes>}`;
-
-export type FontSizes = {
-  [key in FontSizesKeys]: {
-    fontSize: ToNumber<RemoveBeforeSeparator<key>>;
+export type FontStyles = {
+  [key in FontStylesKeys]: {
+    fontFamily: string;
+    fontSize: number;
   };
 };
 
@@ -21,4 +30,4 @@ export type FontColors = {
     : never;
 };
 
-export type Fonts = FontColors & FontSizes & typeof staticFontStyles;
+export type Fonts = FontColors & FontStyles & typeof staticFontStyles;

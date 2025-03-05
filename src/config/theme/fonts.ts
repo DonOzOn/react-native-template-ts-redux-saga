@@ -1,7 +1,8 @@
 import type { TextStyle } from 'react-native';
 
-import type { FontColors, FontSizes, UnionConfiguration } from '@/types';
+import type { FontColors, FontStyles, UnionConfiguration } from '@/types';
 import { config } from './_config';
+import { removeWhitespaceAndSymbols } from '@/utils';
 
 export const generateFontColors = (configuration: UnionConfiguration) => {
   return Object.entries(configuration.fonts.colors ?? {}).reduce(
@@ -16,14 +17,18 @@ export const generateFontColors = (configuration: UnionConfiguration) => {
   );
 };
 
-export const generateFontSizes = () => {
+export const generateFontStyles = () => {
   return config.fonts.sizes.reduce((acc, size) => {
-    return Object.assign(acc, {
-      [`size_${size}`]: {
-        fontSize: size,
-      },
+    config.fonts.fontFamily.forEach((fontName) => {
+      Object.assign(acc, {
+        [`size_${size}_${removeWhitespaceAndSymbols(fontName)}`]: {
+          fontFamily: fontName,
+          fontSize: size,
+        },
+      });
     });
-  }, {} as FontSizes);
+    return acc;
+  }, {} as FontStyles);
 };
 
 export const staticFontStyles = {

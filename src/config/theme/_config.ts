@@ -1,5 +1,5 @@
-
 import type { ThemeConfiguration } from '@/types';
+
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 
 export const enum Variant {
@@ -32,7 +32,15 @@ const colorsDark = {
   skeleton: '#303030',
 } as const;
 
-const sizes = [12, 16, 24, 32, 40, 80] as const;
+const sizes = [0, 4, 8, 12, 16, 24, 32, 40, 80] as const;
+const fontSizes = [11, 12, 13, 14, 15, 16, 17, 20, 22, 28, 34] as const;
+const fontFamilys = [
+  'Quicksand-Bold',
+  'Quicksan-Light',
+  'Quicksand-Medium',
+  'Quicksand-Semibold',
+  'Quicksand-Regular',
+] as const;
 
 export const config = {
   backgrounds: colorsLight,
@@ -44,7 +52,8 @@ export const config = {
   colors: colorsLight,
   fonts: {
     colors: colorsLight,
-    sizes,
+    fontFamily: fontFamilys,
+    sizes: fontSizes
   },
   gutters: sizes,
   navigationColors: {

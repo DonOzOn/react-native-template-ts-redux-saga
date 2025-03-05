@@ -66,6 +66,7 @@ export default (variant: Variant) => {
     colors,
     fonts: {
       colors: fontColors,
+      fontFamily: defaultConfig.fonts.fontFamily,
       sizes: defaultConfig.fonts.sizes,
     },
     gutters: defaultConfig.gutters,

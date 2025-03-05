@@ -1,1 +1,1 @@
-export {fetchUser,fetchUserApi} from './authApi';
+export {fetchUser,login} from './authApi';

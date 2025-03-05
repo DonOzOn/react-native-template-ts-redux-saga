@@ -18,9 +18,15 @@
     "ios-debug-develop": "react-native run-ios --scheme ReactNativeTemplateDebugDev --mode DebugDev",
     "ios-debug-staging": "react-native run-ios --scheme ReactNativeTemplateDebugStaging --mode DebugStaging",
     "ios-debug-production": "react-native run-ios --scheme ReactNativeTemplateDebugProd --mode DebugProd",
+    "ios-release-develop": "react-native run-ios --scheme ReactNativeTemplateReleaseDev --mode ReleaseDev",
+    "ios-release-staging": "react-native run-ios --scheme ReactNativeTemplateReleaseStaging --mode ReleaseStaging",
+    "ios-release-production": "react-native run-ios --scheme ReactNativeTemplateReleaseProd --mode ReleaseProd",
     "android-debug-develop": "react-native run-android --mode=devDebug --appId 'com.reactnativetemplate.dev'",
     "android-debug-staging": "react-native run-android --mode=stagingDebug --appId 'com.reactnativetemplate.stg'",
-    "android-debug-product": "react-native run-android --mode=prodDebug --appId 'com.reactnativetemplate.prod'"
+    "android-debug-product": "react-native run-android --mode=prodDebug --appId 'com.reactnativetemplate.prod'",
+    "android-release-develop": "react-native run-android --mode=devRelease --appId 'com.reactnativetemplate.dev'",
+    "android-release-staging": "react-native run-android --mode=stagingRelease --appId 'com.reactnativetemplate.stg'",
+    "android-release-product": "react-native run-android --mode=prodRelease --appId 'com.reactnativetemplate.prod'"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^11.4.1",
@@ -32,6 +38,7 @@
     "intl-pluralrules": "^2.0.1",
     "react": "19.0.0",
     "react-error-boundary": "^5.0.0",
+    "react-hook-form": "^7.54.2",
     "react-i18next": "^15.4.1",
     "react-native": "0.78.0",
     "react-native-config": "^1.5.5",

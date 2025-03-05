@@ -1,16 +1,21 @@
+import type { Paths } from '@/navigation/paths';
+import type { RootScreenProps } from '@/navigation/types';
+
 import { useTranslation } from 'react-i18next';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import Config from "react-native-config";
+import Config from 'react-native-config';
+
 import {
   AssetByVariant,
   IconByVariant,
   SafeScreen,
   Skeleton,
 } from '@/components';
+
 import { useI18n } from '@/hook';
 import useTheme from '@/hook/useTheme';
 
-function Example() {
+function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
   const { t } = useTranslation();
   const { toggleLanguage } = useI18n();
 
@@ -24,7 +29,6 @@ function Example() {
     layout,
     variant,
   } = useTheme();
-
   const onChangeTheme = () => {
     changeTheme(variant === 'default' ? 'dark' : 'default');
   };
@@ -54,16 +58,20 @@ function Example() {
 
         <View style={[gutters.paddingHorizontal_32, gutters.marginTop_40]}>
           <View style={[gutters.marginTop_40]}>
-            <Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
+            <Text style={[fonts.gray800, fonts.size_28_QuicksandBold]}>
               {t('screen_example.title')}
             </Text>
             <Text
-              style={[fonts.size_16, fonts.gray200, gutters.marginBottom_40]}
+              style={[
+                fonts.gray200,
+                gutters.marginBottom_40,
+                fonts.size_14_QuicksandRegular,
+              ]}
             >
               {t('screen_example.description')}
             </Text>
           </View>
-          <Text>{Config.API_BASE_URL}11</Text>
+          <Text>{Config.API_BASE_URL}</Text>
 
           <View
             style={[
@@ -102,11 +110,10 @@ function Example() {
               <IconByVariant path={'language'} stroke={colors.purple500} />
             </TouchableOpacity>
           </View>
-
         </View>
       </ScrollView>
     </SafeScreen>
   );
 }
 
-export default Example;
+export default ExampleScreen;

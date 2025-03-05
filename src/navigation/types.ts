@@ -3,6 +3,7 @@ import type { Paths } from '@/navigation/paths';
 
 export type RootStackParamList = {
   [Paths.Example]: undefined;
+  [Paths.Login]: undefined;
   [Paths.Startup]: undefined;
 
 };

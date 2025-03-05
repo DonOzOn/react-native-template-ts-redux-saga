@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserRequest } from '@/redux/app/appSlice';
 
-function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
+function StartupScreen({ navigation }: RootScreenProps<Paths.Startup>) {
   const { fonts, layout } = useTheme();
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -39,4 +39,4 @@ function Startup({ navigation }: RootScreenProps<Paths.Startup>) {
   );
 }
 
-export default Startup;
+export default StartupScreen;

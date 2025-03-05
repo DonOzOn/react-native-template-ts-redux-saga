@@ -54,3 +54,9 @@ With custom Bundle Identifier
 ```sh
 $ npx react-native-rename@latest "new_name" -b "bundle_identifier"
 ```
+## Add custom font 
+Add custom font to forlder src/assets/fonts
+Run below command
+```sh
+$ npx react-native-asset
+```

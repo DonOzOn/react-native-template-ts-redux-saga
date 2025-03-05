@@ -1,2 +1,4 @@
-export { default as Example } from './Example/Example';
-export { default as Startup } from './Startup/Startup';
+export { default as ExampleScreen } from './Example/ExampleScreen';
+export { default as LoginScreen } from './Login/LoginScreen';
+export { default as StartupScreen } from './Startup/StartupScreen';
+

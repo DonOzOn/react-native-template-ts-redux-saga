@@ -14,7 +14,7 @@ import type { ComponentTheme, FulfilledThemeConfiguration, Theme, Variant } from
 import { generateBackgrounds, staticBackgroundStyles } from '../backgrounds';
 import { generateGutters, staticGutterStyles } from '../gutters';
 import { generateBorderColors, generateBorderRadius, generateBorderWidths, staticBorderStyles } from '../borders';
-import { generateFontColors, generateFontSizes, staticFontStyles } from '../fonts';
+import { generateFontColors, generateFontStyles, staticFontStyles } from '../fonts';
 
 type Context = {
   changeTheme: (variant: Variant) => void;
@@ -56,7 +56,7 @@ function ThemeProvider({ children = false, storage }: Props) {
 
   const fonts = useMemo(() => {
     return {
-      ...generateFontSizes(),
+      ...generateFontStyles(),
       ...generateFontColors(fullConfig),
       ...staticFontStyles,
     };

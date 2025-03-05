@@ -1,21 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
+
 import appReducer from './app/appSlice';
+import authReducer from './auth/authSlice';
 import networkReducer from './network/networkSlice';
-import { persistReducer, persistStore } from "redux-persist";
 import rootSaga from './rootSaga';
 import { reduxStorage } from './storage';
 
 const sagaMiddleware = createSagaMiddleware();
-// Redux Persist Config
+
+
+// Combine all reducers
+const rootReducer = combineReducers({
+  app: appReducer,
+  auth: authReducer,
+  network: networkReducer, // Not persisted
+});// Redux Persist Config
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage: reduxStorage, // Use MMKV as storage
-  whitelist: ["app"], // Only persist 'app' state, add more if needed
+  whitelist: ['app', 'auth'], // Only persist 'app' state, add more if needed
 };
 
 // Wrap Reducers with Persist
-const persistedReducer = persistReducer(persistConfig, appReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
@@ -23,10 +32,7 @@ export const store = configureStore({
       serializableCheck: false, // Disable serializable check for MMKV
       thunk: false,
     }).concat(sagaMiddleware),
-  reducer: {
-    app: persistedReducer,
-    network: networkReducer, // Not persisted
-  },
+  reducer: persistedReducer,
 });
 
 sagaMiddleware.run(rootSaga);

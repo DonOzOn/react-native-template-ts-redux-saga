@@ -13,4 +13,10 @@ export const capitalize = (str: string): string =>
   // Truncate string with ellipsis
   export const truncate = (str: string, length: number): string => 
     str.length > length ? str.slice(0, Math.max(0, length)) + "..." : str;
+
+  export const removeWhitespaceAndSymbols = (str: string): string => {
+    return str.replaceAll(/[^\dA-Za-z]/g, '');
+  };
+  
+  
   
