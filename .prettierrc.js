@@ -13,7 +13,7 @@ module.exports = {
     '^@/navigation(.*)$',
     '^@/translations(.*)$',
     '^@/config(.*)$',
-    '^@/api(.*)$',
+    '^@/data(.*)$',
     '^@/models(.*)$',
     '^@/types(.*)$',
     '^@/redux(.*)$',

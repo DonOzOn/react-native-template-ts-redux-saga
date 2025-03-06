@@ -5,7 +5,7 @@ import type { User } from '@/models';
 
 import { put, takeLatest } from 'redux-saga/effects';
 
-import { getUser } from '@/api';
+import { getUser } from '@/data';
 
 import { callApiWithNetworkCheck } from '@/utils';
 

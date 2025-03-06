@@ -1,4 +1,3 @@
-// src/api/userApi.ts
 import type { User } from '@/models';
 
 import { authSchema, userSchema } from '@/models';

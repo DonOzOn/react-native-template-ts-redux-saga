@@ -6,7 +6,7 @@ import type { Auth } from '@/models';
 import { put, takeLatest } from 'redux-saga/effects';
 
 import { MMKVStorage } from '@/config';
-import { login } from '@/api';
+import { login } from '@/data';
 
 import { callApiWithNetworkCheck } from '@/utils';
 

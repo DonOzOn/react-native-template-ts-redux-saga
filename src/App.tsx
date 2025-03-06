@@ -31,7 +31,6 @@ const NetworkListener = () => {
         dispatch(setNetworkStatus(false));
       }
     });
-
     return () => unsubscribe();
   }, [dispatch]);
 
