@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Auth, Country, CountryList, User } from '@/models';
+import type { Auth, Country, User } from '@/models';
 
 import { createSlice } from '@reduxjs/toolkit';
 
