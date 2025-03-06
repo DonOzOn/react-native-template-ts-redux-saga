@@ -29,6 +29,7 @@
     "android-release-product": "react-native run-android --mode=prodRelease --appId 'com.reactnativetemplate.prod'"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.1",
     "@gorhom/bottom-sheet": "^5",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-navigation/native": "^7.0.15",
@@ -36,6 +37,7 @@
     "@reduxjs/toolkit": "^2.6.0",
     "@shopify/flash-list": "^1.7.3",
     "axios": "^1.8.1",
+    "graphql": "^16.10.0",
     "i18next": "^24.2.2",
     "intl-pluralrules": "^2.0.1",
     "react": "19.0.0",

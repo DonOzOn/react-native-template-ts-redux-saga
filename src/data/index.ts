@@ -1,1 +1,1 @@
-export {getUser,login} from './authApi';
+export {getCountries,getUser, login} from './authApi';
