@@ -1,17 +1,20 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Auth, User } from '@/models';
+import type { Auth, Country, User } from '@/models';
 
 import { createSlice } from '@reduxjs/toolkit';
 
 import { StateStatus } from '@/config';
 
 export interface HomeState {
+  countries:  Country[];
   error: string;
   status: StateStatus;
   user: null | User;
+
 }
 
 const initialState: HomeState = {
+  countries: [],
   error: '',
   status: StateStatus.INIT,
   user: null
@@ -21,36 +24,44 @@ const homeSlice = createSlice({
   initialState,
   name: 'home',
   reducers: {
+    fetchCountry: (state) => {
+      state.status = StateStatus.LOADING;
+      state.error = '';
+    },
+    fetchCountryFailure: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.status = StateStatus.ERROR;
+    },
+    fetchCountrySuccess: (state, action: PayloadAction<Country[]>) => {
+      state.error = '';
+      state.status = StateStatus.SUCCESS;
+      state.countries = action.payload;
+    },
     fetchUser: (state) => {
-      Object.assign(state, {
-        error: '',
-        status: StateStatus.LOADING
-      });
+      state.error = '';
+      state.status = StateStatus.LOADING;
+    
     },
     fetchUserFailure: (state, action: PayloadAction<string>) => {
-      Object.assign(state, {
-        error: action.payload,
-        status: StateStatus.ERROR
-      });
+      state.error = action.payload;
+      state.status = StateStatus.ERROR;
     },
     fetchUserSuccess: (state, action: PayloadAction<Auth>) => {
-      Object.assign(state, {
-        error: '',
-        status: StateStatus.SUCCESS,
-        user: action.payload,
-      });
+      state.error = '';
+      state.status = StateStatus.SUCCESS;
+      state.user = action.payload;
     },
-    resetError: (state, action: PayloadAction<void>) => {
-      Object.assign(state, {
-        error: '',
-        status: state.status,
-        user: state.user
-      });
+    resetError: (state) => {
+      state.error = '';
+     
     }, 
   },
 });
 
 export const {
+  fetchCountry,
+  fetchCountryFailure,
+  fetchCountrySuccess,
   fetchUser,
   fetchUserFailure,
   fetchUserSuccess,

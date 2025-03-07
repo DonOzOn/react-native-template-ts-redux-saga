@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 
+import { ApolloProvider } from '@apollo/client';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { MMKV } from 'react-native-mmkv';
 
@@ -15,6 +16,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { ErrorModal, NetworkBanner } from './components';
+import { client } from './config';
 import ThemeProvider from './config/theme/ThemeProvider/ThemeProvider';
 import { logout } from './redux/auth/authSlice';
 import { setNetworkStatus } from './redux/network/networkSlice';
@@ -47,14 +49,16 @@ const MainApp = () => {
   return (
     <GestureHandlerRootView>
       <ThemeProvider storage={storage}>
-        <NetworkListener />
-        <NetworkBanner />
-        <ApplicationNavigator />
-        <ErrorModal
-          errorMessage="Token expired"
-          onClose={onCloseErrorModal}
-          visible={!!expiredToken}
-        />
+        <ApolloProvider client={client}>
+          <NetworkListener />
+          <NetworkBanner />
+          <ApplicationNavigator />
+          <ErrorModal
+            errorMessage="Token expired"
+            onClose={onCloseErrorModal}
+            visible={!!expiredToken}
+          />
+        </ApolloProvider>
       </ThemeProvider>
     </GestureHandlerRootView>
   );

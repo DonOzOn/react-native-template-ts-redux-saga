@@ -14,13 +14,16 @@ const data: Record<string, Record<string, any>> = {
     '/styleguide': styleguideviData,
   },
 };
-
+const images = {
+  '/data/media/img/jss_logo.png': require('../assets/data/media/img/jss_logo.png'),
+  '/data/media/img/sc_logo.png': require('../assets/data/media/img/sc_logo.png'),
+};
 // Ensure `src` properties are correctly processed
 const processObjectProperty = (key: string, value: any) => {
-  // if (key === 'src' && typeof value === 'string') {
-  //   console.log('value', value)
-  //   return require(`./assets/images/${value}`); // Assuming images are stored in `assets`
-  // }
+  if (key === 'src' && typeof value === 'string') {
+    return images[value as keyof typeof images]
+    // return require(`./assets/images/${value}`); // Assuming images are stored in `assets`
+  }
   return value;
 };
 

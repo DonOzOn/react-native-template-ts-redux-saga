@@ -3,13 +3,13 @@ import type { HomeState } from '@/redux/home/homeSlice';
 import type { RootScreenProps } from '@/types';
 
 import { useTranslation } from 'react-i18next';
-import { Button, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Config from 'react-native-config';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StateStatus } from '@/config';
 import { logout } from '@/redux/auth/authSlice';
-import { fetchUser, resetError } from '@/redux/home/homeSlice';
+import { fetchCountry, fetchUser, resetError } from '@/redux/home/homeSlice';
 
 import {
   AssetByVariant,
@@ -20,13 +20,14 @@ import {
 
 import { useI18n } from '@/hook';
 import useTheme from '@/hook/useTheme';
+import { useEffect } from 'react';
 
 function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
   const { t } = useTranslation();
   const { toggleLanguage } = useI18n();
 
   const dispatch = useDispatch();
-  const { error, status } = useSelector(
+  const { countries, error , status } = useSelector(
     (state: { home: HomeState }) => state.home,
   );
   const {
@@ -45,6 +46,12 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
   const onCloseErrorModal = () => {
     dispatch(resetError());
   };
+
+  useEffect(() => {
+    dispatch(fetchCountry());
+
+  }, [dispatch])
+  
 
   return (
     <SafeScreen
@@ -95,6 +102,7 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
             style={[gutters.marginBottom_16]}
           >
             <Text>{Config.API_BASE_URL}</Text>
+          
           </TouchableOpacity>
           <Button
             onPress={() => {
@@ -139,6 +147,14 @@ function ExampleScreen({ navigation }: RootScreenProps<Paths.Example>) {
               <IconByVariant path={'language'} stroke={colors.purple500} />
             </TouchableOpacity>
           </View>
+          <FlatList
+        data={countries.slice(0, 5)}
+        keyExtractor={(item) => item.code}
+        renderItem={({ item }) => (
+          <Text>{item.emoji} {item.name} ({item.code})</Text>
+        )}
+        scrollEnabled={false}
+      />
         </View>
       </ScrollView>
     </SafeScreen>
