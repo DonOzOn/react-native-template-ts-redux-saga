@@ -6,7 +6,9 @@ export type RootStackParamList = {
   [Paths.Example]: undefined;
   [Paths.Login]: undefined;
   [Paths.Main]: undefined;
+  [Paths.SiteCoreTestScreen]: undefined;
   [Paths.Startup]: undefined;
+  [Paths.Styleguide]: undefined;
 
 };
 
