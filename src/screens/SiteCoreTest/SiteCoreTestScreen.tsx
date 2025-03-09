@@ -6,10 +6,10 @@ import React from 'react';
 import Layout from '@/Layout';
 import Route from '../Route/Route';
 
-function SiteCoreTestScreen({ navigation }: RootScreenProps<Paths.SiteCoreTestScreen>) {
+function SiteCoreTestScreen({ navigation }: RootScreenProps<Paths.SiteCoreTest>) {
   return (
     <Route
-      path="/"
+      path="/home"
       render={({ data }: never) => <Layout navigation={navigation} rendering={data} />}
     />
   );

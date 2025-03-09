@@ -1,3 +1,4 @@
+export * from './bottom/bottom.type';
 export { languageSchema, SupportedLanguages } from './language/language.type';
 export type { Language } from './language/language.type';
 export * from './login/login.type';

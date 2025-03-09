@@ -1,0 +1,17 @@
+{
+  "name": "BottomTab",
+  "displayName": "BottomTab",
+  "placeholders": {
+    "jss-main": [
+      {
+        "componentName": "BottomNavigation",
+        "fields": {
+          "tabs": [
+            { "title": "SiteCoreTest", "route": "/home", "icon": "home" },
+            { "title": "Example", "route": "/profile", "icon": "user" }
+          ]
+        }
+      }
+    ]
+  }
+}

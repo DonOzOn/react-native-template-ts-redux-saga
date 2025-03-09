@@ -60,7 +60,6 @@ const StyleguideLayoutTabs = ({
   );
 
   const renderEmpty = (components: any) => <View>{components}</View>;
-
   return (
     <StyleguideSpecimen fields={fields} rendering={rendering}>
       <Placeholder

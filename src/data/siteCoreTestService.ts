@@ -1,16 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styleguideEnData from '../assets/data/routes/styleguide/en.json';
+import bottomEnData from '../assets/data/routes/bottom/en.json';
+
 import styleguideviData from '../assets/data/routes/styleguide/vi.json';
 import homeDataEn from '../assets/data/routes/en.json';
 import { mapNestedJson } from '../utils/mapJsonHelper';
 
 const data: Record<string, Record<string, any>> = {
   en: {
-    '/': homeDataEn,
+    '/': bottomEnData,
+    '/home': homeDataEn,
     '/styleguide': styleguideEnData,
   },
   vi: {
-    '/': null,
+    '/home': null,
     '/styleguide': styleguideviData,
   },
 };
