@@ -7,26 +7,26 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Project Structure
 📦 project
-├── 📂 android/             # Native Android files (don't modify unless necessary)
-├── 📂 ios/                 # Native iOS files (don't modify unless necessary)
-├── 📂 src/                 # Main source code
-│   ├── 📂 assets/          # Static assets (images, fonts, icons, mockdata sotecore etc.)  
-│   ├── 📂 components/      # Reusable UI components (buttons, inputs, etc.) and sitecore mapping component
-        ├── componentFactory.ts  # mapping sitecore UI with RN component
-        ├── 📂 siteCoreComponent # sitecore component
-│   ├── 📂 config/          # Config setting of api, graphql, credential/mkkv storage, constant(enum/endpoint), theme
-│   ├── 📂 data/            # API calls and external services
-│   ├── 📂 hooks/           # Custom hooks (useAuth, useFetch, etc.)
-│   ├── 📂 models/          # Contain model for data
-│   ├── 📂 screens/         # Screens for navigation (Login, Home, etc.)
-│   ├── 📂 navigation/      # Navigation configuration (React Navigation)
-│   ├── 📂 redux/           # Redux store + Saga setup for each module
-│   ├── 📂 utils/           # Utility functions (formatDate, validators, etc.)
-│   ├── 📂 types/           # TypeScript types/interfaces
-│   ├── 📂 translations/    # Config localization 
-│   ├── 📂 data/            # Local JSON data or mock data
-│   ├── App.tsx            # Entry point of the app
-│   ├── index.js           # Registers the app
+├── 📂 android/               # Native Android files (don't modify unless necessary)
+├── 📂 ios/                   # Native iOS files (don't modify unless necessary)
+├── 📂 src/                   # Main source code
+│   ├── 📂 assets/            # Static assets (images, fonts, icons, mock data, Sitecore, etc.)
+│   ├── 📂 components/        # Reusable UI components (buttons, inputs, etc.) and Sitecore mapping component
+│   │   ├── componentFactory.ts   # Mapping Sitecore UI with React Native components
+│   │   ├── 📂 siteCoreComponent  # Sitecore components
+│   ├── 📂 config/            # Config settings (API, GraphQL, credentials, MMKV storage, constants, theme)
+│   ├── 📂 data/              # API calls and external services
+│   ├── 📂 hooks/             # Custom hooks (useAuth, useFetch, etc.)
+│   ├── 📂 models/            # Data models
+│   ├── 📂 screens/           # Screens for navigation (Login, Home, etc.)
+│   ├── 📂 navigation/        # Navigation configuration (React Navigation)
+│   ├── 📂 redux/             # Redux store + Saga setup for each module
+│   ├── 📂 utils/             # Utility functions (formatDate, validators, etc.)
+│   ├── 📂 types/             # TypeScript types/interfaces
+│   ├── 📂 translations/      # Localization configuration
+│   ├── 📂 data/              # Local JSON data or mock data
+│   ├── App.tsx              # Entry point of the app
+│   ├── index.js             # Registers the app
 
 ## Step 1: Start Metro
 
