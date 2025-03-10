@@ -28,6 +28,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 │   ├── App.tsx              # Entry point of the app
 │   ├── index.js             # Registers the app
 
+
 ## Step 1: Start Metro
 
 First, you will need to run **Metro**, the JavaScript build tool for React Native.
