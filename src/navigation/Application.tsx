@@ -33,7 +33,7 @@ function ApplicationNavigator() {
           },
         }}
       >
-        {authInfor ? <AppNavigator /> : <AuthNavigator />}
+        {!authInfor ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </SafeAreaProvider>
   );

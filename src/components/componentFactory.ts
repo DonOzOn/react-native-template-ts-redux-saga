@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import StyleguideFieldUsageText from './siteCorecomponents/Styleguide-FieldUsage-Text';
-import StyleguideFieldUsageRichText from './siteCorecomponents/Styleguide-FieldUsage-RichText';
-import StyleguideFieldUsageImage from './siteCorecomponents/Styleguide-FieldUsage-Image';
-import StyleguideFieldUsageNumber from './siteCorecomponents/Styleguide-FieldUsage-Number';
-import StyleguideFieldUsageCheckbox from './siteCorecomponents/Styleguide-FieldUsage-Checkbox';
-import StyleguideFieldUsageDate from './siteCorecomponents/Styleguide-FIeldUsage-Date';
-import StyleguideFieldUsageLink from './siteCorecomponents/Styleguide-FieldUsage-Link';
-import StyleguideFieldUsageCustom from './siteCorecomponents/Styleguide-FieldUsage-Custom';
-import StyleguideLayoutTabs from './siteCorecomponents/Styleguide-Layout-Tabs';
-import StyleguideLayoutTabsTab from './siteCorecomponents/Styleguide-Layout-Tabs-Tab';
-import StyleguideComponentParams from './siteCorecomponents/Styleguide-ComponentParams';
-import StyleguideMultilingual from './siteCorecomponents/Styleguide-Multilingual';
-import Home from './siteCorecomponents/Home';
+import StyleguideFieldUsageText from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Text';
+import StyleguideFieldUsageRichText from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-RichText';
+import StyleguideFieldUsageImage from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Image';
+import StyleguideFieldUsageNumber from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Number';
+import StyleguideFieldUsageCheckbox from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Checkbox';
+import StyleguideFieldUsageDate from './siteCoreComponents/Styleguide/Styleguide-FIeldUsage-Date';
+import StyleguideFieldUsageLink from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Link';
+import StyleguideFieldUsageCustom from './siteCoreComponents/Styleguide/Styleguide-FieldUsage-Custom';
+import StyleguideLayoutTabs from './siteCoreComponents/Styleguide/Styleguide-Layout-Tabs';
+import StyleguideLayoutTabsTab from './siteCoreComponents/Styleguide/Styleguide-Layout-Tabs-Tab';
+import StyleguideComponentParams from './siteCoreComponents/Styleguide/Styleguide-ComponentParams';
+import StyleguideMultilingual from './siteCoreComponents/Styleguide/Styleguide-Multilingual';
+import Home from './siteCoreComponents/Home';
 
 const components = new Map();
 
