@@ -6,6 +6,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 
 # Project Structure
+```
 📦 project
 ├── 📂 android/               # Native Android files (don't modify unless necessary)
 ├── 📂 ios/                   # Native iOS files (don't modify unless necessary)
@@ -26,7 +27,8 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 │   ├── 📂 translations/      # Localization configuration
 │   ├── 📂 data/              # Local JSON data or mock data
 │   ├── App.tsx              # Entry point of the app
-│   ├── index.js             # Registers the app
+│   ├── index.js             # Registers the a
+```
 
 
 ## Step 1: Start Metro
