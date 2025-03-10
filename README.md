@@ -4,6 +4,30 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
+
+# Project Structure
+📦 project
+├── 📂 android/             # Native Android files (don't modify unless necessary)
+├── 📂 ios/                 # Native iOS files (don't modify unless necessary)
+├── 📂 src/                 # Main source code
+│   ├── 📂 assets/          # Static assets (images, fonts, icons, mockdata sotecore etc.)  
+│   ├── 📂 components/      # Reusable UI components (buttons, inputs, etc.) and sitecore mapping component
+        ├── componentFactory.ts  # mapping sitecore UI with RN component
+        ├── 📂 siteCoreComponent # sitecore component
+│   ├── 📂 config/          # Config setting of api, graphql, credential/mkkv storage, constant(enum/endpoint), theme
+│   ├── 📂 data/            # API calls and external services
+│   ├── 📂 hooks/           # Custom hooks (useAuth, useFetch, etc.)
+│   ├── 📂 models/          # Contain model for data
+│   ├── 📂 screens/         # Screens for navigation (Login, Home, etc.)
+│   ├── 📂 navigation/      # Navigation configuration (React Navigation)
+│   ├── 📂 redux/           # Redux store + Saga setup for each module
+│   ├── 📂 utils/           # Utility functions (formatDate, validators, etc.)
+│   ├── 📂 types/           # TypeScript types/interfaces
+│   ├── 📂 translations/    # Config localization 
+│   ├── 📂 data/            # Local JSON data or mock data
+│   ├── App.tsx            # Entry point of the app
+│   ├── index.js           # Registers the app
+
 ## Step 1: Start Metro
 
 First, you will need to run **Metro**, the JavaScript build tool for React Native.
