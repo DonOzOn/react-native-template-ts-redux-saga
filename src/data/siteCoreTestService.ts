@@ -5,6 +5,7 @@ import bottomEnData from '../assets/data/routes/bottom/en.json';
 import styleguideviData from '../assets/data/routes/styleguide/vi.json';
 import homeDataEn from '../assets/data/routes/en.json';
 import { mapNestedJson } from '../utils/mapJsonHelper';
+import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react-native';
 
 const data: Record<string, Record<string, any>> = {
   en: {
@@ -44,4 +45,21 @@ const getRouteData = (route: string, { language = 'en' }: { language?: string } 
     resolve(produceData(route, language));
   });
 
-export { getRouteData };
+
+
+/* global __SC_API_KEY__, __SC_API_HOST__ */
+/* eslint-disable import/no-extraneous-dependencies */
+const getRouteDataReMote = (route: any, { language, options = {} }: any = {}) => {
+  const layoutService = new RestLayoutService({
+    apiHost: '',
+    apiKey: '',
+    siteName: '',
+  });
+
+  return layoutService
+    .fetchLayoutData(route, language)
+    .then((data: any) => (data && data.sitecore ? data.sitecore.route : {}));
+};
+
+
+export { getRouteData, getRouteDataReMote };

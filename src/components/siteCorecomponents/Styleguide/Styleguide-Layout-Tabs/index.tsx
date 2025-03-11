@@ -44,7 +44,7 @@ const StyleguideLayoutTabs = ({
         key={index}
         onPress={() => setActiveTabIndex(index)}
       >
-        <Text field={tab.fields.title} style={style} />
+        <Text field={'tab.fields.title'} style={style} />
       </TouchableWithoutFeedback>
     );
   };
