@@ -1,20 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@sitecore-jss/sitecore-jss-react-native';
-import type { Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
+import type { StyleguideFieldProps } from '../Styleguide-Specimen/Styleguide-Specimen';
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-}
-
-interface StyleguideFieldUsageTextProps {
-  fields: Fields;
-  rendering: Rendering;
-}
-
-const StyleguideFieldUsageText= ({ fields, rendering }: StyleguideFieldUsageTextProps) => (
+const StyleguideFieldUsageText= ({ fields, rendering }: StyleguideFieldProps) => (
   <StyleguideSpecimen fields={fields} rendering={rendering}>
     <View>
       {fields.sample && <Text field={fields.sample} style={styles.text} />}

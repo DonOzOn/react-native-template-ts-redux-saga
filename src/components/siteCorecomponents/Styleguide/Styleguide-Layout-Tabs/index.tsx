@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Field, Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
+import type { StyleguideFieldProps } from '../Styleguide-Specimen/Styleguide-Specimen';
 import type { TextStyle } from 'react-native';
 
+import type { Field} from '@sitecore-jss/sitecore-jss-react-native';
 import { Placeholder, Text } from '@sitecore-jss/sitecore-jss-react-native';
 import React, { useState } from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
@@ -19,20 +20,10 @@ interface TabRendering {
   fields: TabFields;
 }
 
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-}
-
-interface StyleguideLayoutTabsProps {
-  fields: Fields;
-  rendering: Rendering;
-}
-
 const StyleguideLayoutTabs = ({
   fields,
   rendering,
-}: StyleguideLayoutTabsProps) => {
+}: StyleguideFieldProps) => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
   const renderTab = (tab: TabRendering, index: number) => {
@@ -44,7 +35,7 @@ const StyleguideLayoutTabs = ({
         key={index}
         onPress={() => setActiveTabIndex(index)}
       >
-        <Text field={'tab.fields.title'} style={style} />
+        <Text field={tab.fields.title} style={style} />
       </TouchableWithoutFeedback>
     );
   };

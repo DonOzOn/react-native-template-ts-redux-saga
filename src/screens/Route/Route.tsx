@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useState } from 'react';
 import { RefreshControl, Text, View } from 'react-native';
+import type { RouteData} from '@sitecore-jss/sitecore-jss-react-native';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react-native';
 import { getRouteData } from '@/data/siteCoreTestService';
 import componentFactory from '@/components/componentFactory';
+
 
 type RouterProps = {
   path: string,
@@ -13,7 +15,7 @@ type RouterProps = {
 const Route = ({ path, render }:RouterProps) => {
   const [lang, setLang] = useState('en');
   const [loading, setLoading] = useState(true);
-  const [route, setRoute] = useState<any>(null);
+  const [route, setRoute] = useState<RouteData>();
   const [error, setError] = useState<any>(null);
 
   // Fetch data
@@ -23,13 +25,22 @@ const Route = ({ path, render }:RouterProps) => {
 
     getRouteData(path, { language: lang })
       .then((data) => {
-        setRoute(data);
+        setRoute(data as RouteData);
         setLoading(false);
       })
       .catch((error_) => {
         setError(error_);
         setLoading(false);
       });
+      //   getRouteDataReMote(path, { language: lang })
+      // .then((data) => {
+      //   setRoute(data);
+      //   setLoading(false);
+      // })
+      // .catch((error_) => {
+      //   setError(error_);
+      //   setLoading(false);
+      // });
   }, [path, lang]);
 
   // Initial fetch on mount & when language changes
@@ -52,7 +63,6 @@ const Route = ({ path, render }:RouterProps) => {
       </View>
     );
   }
-
   const refreshControl = <RefreshControl onRefresh={loadData} refreshing={loading} />;
   return (
     <SitecoreContext componentFactory={componentFactory}>

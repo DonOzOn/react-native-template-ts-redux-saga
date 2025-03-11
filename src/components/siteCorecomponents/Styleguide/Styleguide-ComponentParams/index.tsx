@@ -1,28 +1,13 @@
 import React from 'react';
 import type { TextStyle} from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
-import type { Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
-
-// Define interfaces for fields and params
-
-
-interface Params {
-  columns?: string;
-  cssClass?: string;
-  useCallToAction?: string;
-}
-
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-  params: Params;
-}
+import type { ComponentFields, ComponentParams, ComponentRendering } from '@sitecore-jss/sitecore-jss-react-native';
 
 interface StyleguideComponentParamsProps {
-  fields: Fields;
-  params: Params;
-  rendering: Rendering;
+  fields: ComponentFields;
+  params: ComponentParams;
+  rendering: ComponentRendering;
 }
 
 const StyleguideComponentParams = ({ fields, params, rendering }: StyleguideComponentParamsProps) => {

@@ -1,47 +1,19 @@
+import type { ComponentFields, ComponentRendering } from '@sitecore-jss/sitecore-jss-react-native';
 import type { ReactNode } from 'react';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
 
-// Define types for props
-export interface Fields {
-  checkbox?: CheckboxField | Field;
-  checkbox2?: CheckboxField | Field;
-  customIntField?: Field 
-  date: Field;
-  dateTime: Field;
-  description?: Field;
-  emailLink?: Field | LinkField;
-  externalLink?: Field | LinkField;
-  heading?: Field;
-  sample?: Field;
-  sample1?: Field;
-  sample2?: Field;
-}
-// Define types for fields
-export interface Field {
-  editable?: string;
-  value: string;
-}
-// Define types for field structures
-interface CheckboxField {
-  value: boolean;
-}
-interface Rendering {
-  componentName: string;
-}
-
-interface LinkField {
-  href?: string;
-  text?: string;
-}
-
-
 interface StyleguideSpecimenProps {
   children: ReactNode;
-  fields: Fields;
-  rendering: Rendering;
+  fields: ComponentFields;
+  rendering: ComponentRendering;
+}
+
+export interface StyleguideFieldProps {
+  fields: ComponentFields;
+  rendering: ComponentRendering;
 }
 
 const StyleguideSpecimen= ({ children, fields, rendering } : StyleguideSpecimenProps) => (

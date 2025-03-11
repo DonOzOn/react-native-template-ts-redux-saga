@@ -1,20 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
-import type {  Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
+import type { StyleguideFieldProps } from '../Styleguide-Specimen/Styleguide-Specimen';
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-}
 
-interface StyleguideFieldUsageCheckboxProps {
-  fields: Fields;
-  rendering: Rendering;
-}
-
-const StyleguideFieldUsageCheckbox = ({ fields, rendering }: StyleguideFieldUsageCheckboxProps) => {
-  const showState = (field: keyof Fields) => {
+const StyleguideFieldUsageCheckbox = ({ fields, rendering }: StyleguideFieldProps) => {
+  const showState = (field: string) => {
     const fieldData = fields[field];
   
     if (fieldData && "value" in fieldData) {

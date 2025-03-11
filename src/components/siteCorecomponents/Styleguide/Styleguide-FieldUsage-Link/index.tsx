@@ -2,21 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import { Link } from '@sitecore-jss/sitecore-jss-react-native';
 
-import type { Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
+import type { StyleguideFieldProps } from '../Styleguide-Specimen/Styleguide-Specimen';
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
 
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-}
 
-interface StyleguideFieldUsageLinkProps {
-  fields: Fields;
-  rendering: Rendering;
-}
-
-const StyleguideFieldUsageLink: React.FC<StyleguideFieldUsageLinkProps> = ({ fields, rendering }) => (
+const StyleguideFieldUsageLink: React.FC<StyleguideFieldProps> = ({ fields, rendering }) => (
   <StyleguideSpecimen fields={fields} rendering={rendering}>
     <View style={styles.field}>
       <Text>External link: </Text>

@@ -5,6 +5,7 @@ import bottomEnData from '../assets/data/routes/bottom/en.json';
 import styleguideviData from '../assets/data/routes/styleguide/vi.json';
 import homeDataEn from '../assets/data/routes/en.json';
 import { mapNestedJson } from '../utils/mapJsonHelper';
+import type { LayoutServiceData, RouteData } from '@sitecore-jss/sitecore-jss-react-native';
 import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react-native';
 
 const data: Record<string, Record<string, any>> = {
@@ -49,7 +50,7 @@ const getRouteData = (route: string, { language = 'en' }: { language?: string } 
 
 /* global __SC_API_KEY__, __SC_API_HOST__ */
 /* eslint-disable import/no-extraneous-dependencies */
-const getRouteDataReMote = (route: any, { language, options = {} }: any = {}) => {
+const getRouteDataReMote = (route: string, { language, options = {} }: any = {}): Promise<RouteData> => {
   const layoutService = new RestLayoutService({
     apiHost: '',
     apiKey: '',
@@ -58,7 +59,7 @@ const getRouteDataReMote = (route: any, { language, options = {} }: any = {}) =>
 
   return layoutService
     .fetchLayoutData(route, language)
-    .then((data: any) => (data && data.sitecore ? data.sitecore.route : {}));
+    .then((data: LayoutServiceData) => (data && data.sitecore && data.sitecore.route ? data.sitecore.route : {} as RouteData));
 };
 
 

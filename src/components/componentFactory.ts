@@ -12,6 +12,7 @@ import StyleguideLayoutTabsTab from './siteCoreComponents/Styleguide/Styleguide-
 import StyleguideComponentParams from './siteCoreComponents/Styleguide/Styleguide-ComponentParams';
 import StyleguideMultilingual from './siteCoreComponents/Styleguide/Styleguide-Multilingual';
 import Home from './siteCoreComponents/Home';
+import type { ComponentFactory } from '@sitecore-jss/sitecore-jss-react-native/dist/components/sharedTypes';
 
 const components = new Map();
 
@@ -29,6 +30,6 @@ components.set('Styleguide-ComponentParams', StyleguideComponentParams);
 components.set('Styleguide-Multilingual', StyleguideMultilingual);
 components.set('Home', Home);
 
-const componentFactory = (componentName: any) => components.get(componentName);
+const componentFactory: ComponentFactory = (componentName: string) => components.get(componentName) ;
 
 export default componentFactory;

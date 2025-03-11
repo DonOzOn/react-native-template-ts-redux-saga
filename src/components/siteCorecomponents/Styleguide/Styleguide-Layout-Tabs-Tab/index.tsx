@@ -1,32 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import type { StyleguideFieldProps } from '../Styleguide-Specimen/Styleguide-Specimen';
+import type { Field } from '@sitecore-jss/sitecore-jss-react-native';
 
-// Define types for fields
-interface Field {
-  editable?: string;
-  value?: string;
-}
-
-interface Fields {
-  content?: Field;
-  title?: Field;
-}
-
-// Define types for rendering prop
-interface Rendering {
-  componentName: string;
-  fields: Fields;
-}
-
-// Define props for the component
-interface StyleguideLayoutTabsTabProps {
-  fields: Fields;
-  rendering: Rendering;
-}
-
-const StyleguideLayoutTabsTab: React.FC<StyleguideLayoutTabsTabProps> = ({ fields }) => (
+const StyleguideLayoutTabsTab: React.FC<StyleguideFieldProps> = ({ fields }) => (
   <View>
-    <Text>{fields.content?.value}</Text>
+    <Text>{(fields.content as Field)?.value.toString()}</Text>
   </View>
 );
 

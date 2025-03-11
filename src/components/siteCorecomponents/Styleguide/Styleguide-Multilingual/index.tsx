@@ -1,14 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
+  ComponentFields,
+  ComponentRendering,
+} from '@sitecore-jss/sitecore-jss-react-native';
+
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import type { Fields } from '../Styleguide-Specimen/Styleguide-Specimen';
-import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
+import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
 // Define props for the component
 interface StyleguideMultilingualProps {
-  fields: Fields;
-  rendering: any; // You may define a more specific type for rendering if needed
+  fields: ComponentFields;
+  rendering: ComponentRendering; // You may define a more specific type for rendering if needed
   switchLanguage: (language: string) => void;
 }
 
